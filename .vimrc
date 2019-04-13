@@ -79,6 +79,7 @@ nmap <F7> :NERDTreeToggle<CR>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP .'
 nmap <C-l> :CtrlPTag<CR>
+let g:ctrlp_custom_ignore = 'node_modules'
 
 " Tagbar
 nmap <F8> :TagbarOpenAutoClose<CR>
@@ -102,3 +103,9 @@ nmap <F6> :VimtexTocToggle<CR>
 
 " Neovim terminal
 tnoremap <Esc> <C-\><C-n>
+
+" vim-go
+let g:go_fmt_command = "goimports"
+
+" vim-vue
+autocmd FileType vue syntax sync fromstart
