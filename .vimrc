@@ -17,6 +17,25 @@ endif
 
 " CUSTOM CHANGES BELOW THIS LINE
 
+call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-surround'
+"Plug 'tomtom/tlib_vim.git'
+"Plug 'MarcWeber/vim-addon-mw-utils.git'
+"Plug 'garbas/vim-snipmate.git'
+"Plug 'honza/vim-snippets.git'
+Plug 'bling/vim-airline'
+Plug 'tpope/vim-fugitive'
+Plug 'fatih/vim-go'
+Plug 'leafgarland/typescript-vim'
+"Plug 'lervag/vimtex'
+Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'posva/vim-vue'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+call plug#end()
+
 " Misc
 set backup                      " Create backups
 set history=50                  " Remember last 50 commands
@@ -58,7 +77,7 @@ set number
 set ruler
 set showcmd " Show partially completed commands in the status line
 set laststatus=2 " Always show the status line
-set colorcolumn=81
+set colorcolumn=101
 
 " Case insensitive search, incremental search
 set ignorecase
@@ -69,9 +88,6 @@ silent !mkdir ~/.vimtmp > /dev/null 2>&1
 set backupdir=~/.vimtmp
 set directory=~/.vimtmp
 
-" Autoload plugins using pathogen
-execute pathogen#infect()
-
 " NERDTree
 nmap <F7> :NERDTreeToggle<CR>
 
@@ -80,9 +96,6 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP .'
 nmap <C-l> :CtrlPTag<CR>
 let g:ctrlp_custom_ignore = 'node_modules'
-
-" Tagbar
-nmap <F8> :TagbarOpenAutoClose<CR>
 
 " ctags
 nmap <F9> :!ctags -R .<CR>
@@ -109,3 +122,15 @@ let g:go_fmt_command = "goimports"
 
 " vim-vue
 autocmd FileType vue syntax sync fromstart
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Make <tab> auto-select the first completion item and notify coc.nvim to
+" format on enter, <tab> could be remapped by other vim plugin
+inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
