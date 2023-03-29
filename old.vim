@@ -1,5 +1,3 @@
-" THIS IS TAKEN FROM THE EXAMPLE CONFIG FILE
-
 " Use Vim settings, rather than Vi settings (much better!).
 set nocompatible
 
@@ -15,8 +13,6 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-" CUSTOM CHANGES BELOW THIS LINE
-
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
@@ -27,7 +23,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'fatih/vim-go'
 Plug 'leafgarland/typescript-vim'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'simrat39/rust-tools.nvim'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -111,26 +106,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_go_checkers = ['go']
 
-" Vimtex
-nmap <F6> :VimtexTocToggle<CR>
-
 " Neovim terminal
 tnoremap <Esc> <C-\><C-n>
 
 " vim-go
 let g:go_fmt_command = "goimports"
-
-" vim-vue
-autocmd FileType vue syntax sync fromstart
-
-" Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
-
-" Make <tab> auto-select the first completion item and notify coc.nvim to
-" format on enter, <tab> could be remapped by other vim plugin
-inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
