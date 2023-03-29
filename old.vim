@@ -34,6 +34,8 @@ Plug 'leafgarland/typescript-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'posva/vim-vue'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neovim/nvim-lspconfig'
+Plug 'simrat39/rust-tools.nvim'
 call plug#end()
 
 " Misc
