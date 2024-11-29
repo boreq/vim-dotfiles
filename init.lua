@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 rt.setup({
   server = {
     on_attach = function(_, bufnr)
-      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+      vim.keymap.set("n", "<C-Enter>", rt.hover_actions.hover_actions, { buffer = bufnr })
       vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
     end,
   },
@@ -23,11 +23,6 @@ rt.setup({
 local cmp = require'cmp'
 
 cmp.setup({
-    snippet = {
-      expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-      end,
-    },
     window = {
       completion = cmp.config.window.bordered(),
       documentation = cmp.config.window.bordered(),
@@ -42,7 +37,6 @@ cmp.setup({
     }),
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
-      { name = 'vsnip' },
     }, {
       { name = 'buffer' },
     })
