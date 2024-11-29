@@ -1,18 +1,3 @@
-" Use Vim settings, rather than Vi settings (much better!).
-set nocompatible
-
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-endif
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
-endif
-
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
@@ -33,8 +18,6 @@ call plug#end()
 
 " Misc
 set backup                      " Create backups
-set history=50                  " Remember last 50 commands
-set backspace=indent,eol,start  " Allow backspacing over everything in insert mode
 
 " Indent using spaces
 set shiftwidth=4
