@@ -9,9 +9,9 @@ Plug 'fatih/vim-go'
 Plug 'leafgarland/typescript-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'neovim/nvim-lspconfig'
-Plug 'simrat39/rust-tools.nvim'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/nvim-cmp'
+Plug 'mrcjkb/rustaceanvim'
 call plug#end()
 
 " Misc
