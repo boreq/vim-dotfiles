@@ -51,3 +51,8 @@ cmp.setup({
       { name = 'buffer' },
     })
 })
+
+local lspconfig = require('lspconfig')
+lspconfig.gopls.setup {}
+lspconfig.ts_ls.setup {} -- yarn global add typescript-language-server
+lspconfig.vuels.setup {} -- yarn global add vls
