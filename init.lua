@@ -52,7 +52,7 @@ cmp.setup({
     })
 })
 
-local lspconfig = require('lspconfig')
-lspconfig.gopls.setup {}
-lspconfig.ts_ls.setup {} -- yarn global add typescript-language-server
-lspconfig.vuels.setup {} -- yarn global add vls
+vim.lsp.config('gopls', {})
+vim.lsp.config('ts_ls', {}) -- yarn global add typescript-language-server
+vim.lsp.config('vuels', {}) -- yarn global add vls
+vim.lsp.config('pyright', {})
